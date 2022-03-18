@@ -8,6 +8,7 @@ Modify the nginx.conf and add wanted HLS configuration:
 
 sudo nano /etc/nginx/nginx.conf
 
+```
 rtmp {
         server {
                 listen 1935;
@@ -28,6 +29,7 @@ rtmp {
                 }
         }
 }
+```
 
 Open the port 1935
 
@@ -37,6 +39,7 @@ Modify rtmp and add Access-Control-Allow-Origin:
 
 sudo nano /etc/nginx/sites-available/rtmp
 
+```
 server {
     listen 8088;
 
@@ -49,6 +52,7 @@ server {
 types {
     application/dash+xml mpd;
 }
+```
 
 “Note: The Access-Control-Allow-Origin * header enables CORS, or
 
@@ -64,11 +68,10 @@ sudo mkdir /var/www/html/stream
 
  
 
-FFMPEG command for rtmp, static file
+FFMPEG command for rtmp, static file:
 ffmpeg -i #{file_path} -c:a aac -ar 44100 -f flv -flvflags no_duration_filesize rtmp://localhost/live/stream
 
-FFMPEG command for rtmp, dynamic file
-
+FFMPEG command for rtmp, dynamic file:
 For example, the following command will take the device’s microphone (-i default) as an input and send it to rtmp, ‘alsa’ or ‘pulse’ can be used.
 system "ffmpeg -f alsa -re -i default -c:v copy -vn -c:a aac -ar 44100 -ac 1 -f flv rtmp://localhost/live/stream"
 

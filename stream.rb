@@ -3,10 +3,10 @@
 # HLS can be configured in rtmp module, if wanted
 
 
+# Microphone (alsa/pulse, microphone = default)
 def stream_mic()
-    # Microphone (alsa, or pulse)
     system "ffmpeg  -f alsa \
-    -re  -c:a aac \
+    -re -i default -c:a aac \
     -f flv -ar 44100 \ 
     -flvflags no_duration_filesize rtmp://localhost/show/stream"
 end

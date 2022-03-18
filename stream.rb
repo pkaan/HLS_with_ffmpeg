@@ -4,6 +4,7 @@
 
 
 # Microphone (alsa/pulse, microphone = default)
+
 def stream_mic()
     system "ffmpeg  -f alsa \
     -re -i default -c:a aac \

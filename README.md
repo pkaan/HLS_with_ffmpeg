@@ -1,4 +1,4 @@
-For live streaming with RTMP module (Real-Time Messaging Protocol)
+1. For live streaming with RTMP module (Real-Time Messaging Protocol)
 
 Install nginx with rtmp mod
 
@@ -85,4 +85,45 @@ Stream can be also opened in vlc player:
 
 To open .m3u8 files in the browser, configure html5 with video.js player or use an extension.
  
+
+
+
+2. A basic Nginx config for basic file sharing server
+
+```
+worker_processes  1;
+
+events {
+    worker_connections  1024;
+}
+
+http {
+        
+    #Settings
+    include mime.types;
+    default_type application/octet-stream;
+    server_tokens off;
+    sendfile on;
+    keepalive_timeout  65;
+    #gzip  on;
+
+    server {
+        # Listening port 80, change if needed
+        listen       80;
+       
+        location / {
+            root   root_directory_for_files
+	    	autoindex on;
+    		autoindex_exact_size off;
+    		autoindex_format html;
+    		autoindex_localtime on;
+        }
+    }
+}
+```
+In use
+
+For example, use the ffmpeg command to create segments and playlists directly to the root_directory_for_files. 
+
+To play the .m3u8 files, set up the html5 + video.js, or just click the file (requires a browser extension). 
 

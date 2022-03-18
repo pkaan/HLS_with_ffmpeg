@@ -60,11 +60,11 @@ Cross-Origin Resource Sharing, which is disabled by default. This communicates t
 
 Open port 8088
 
-sudo ufw allow 8088/tcp
+```sudo ufw allow 8088/tcp```
 
 Create a directory for hls stream files
 
-sudo mkdir /var/www/html/stream
+```sudo mkdir /var/www/html/stream```
 
  
 

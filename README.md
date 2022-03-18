@@ -1,4 +1,4 @@
-1. For live streaming with RTMP module (Real-Time Messaging Protocol)
+1. Nginx configuration for live streaming with RTMP module (Real-Time Messaging Protocol)
 
 Install nginx with rtmp mod
 
@@ -88,7 +88,7 @@ To open .m3u8 files in the browser, configure html5 with video.js player or use 
 
 
 
-2. A basic Nginx config for basic file sharing server
+2.  Nginx configuration for for basic file sharing server
 
 ```
 worker_processes  1;
